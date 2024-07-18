@@ -27,6 +27,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['8000-barry1701-meetingorgani-qeqe45jqn2b.ws.codeinstitute-ide.net']
 
+CSRF_TRUSTED_ORIGINS = ['https://8000-barry1701-meetingorgani-qeqe45jqn2b.ws.codeinstitute-ide.net' ] 
+
 
 # Application definition
 
