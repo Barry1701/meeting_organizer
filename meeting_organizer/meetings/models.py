@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 
 class Room(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=30)
     floor = models.IntegerField(default=0)
     room_number = models.IntegerField()
 

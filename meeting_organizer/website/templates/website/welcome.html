@@ -1,15 +1,29 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
+    <link rel="stylesheet" href="{% static 'website/style.css' %}">
 </head>
 <body>
     <h1>Welcome to the Meeting Organizer!</h1>
 
     <h3>Streamline Your Meetings, Elevate Your Productivity.</h3>
+    <img src="{% static 'website/calendar.png' %}" width="100px">
 
-    <h5>There are currently {{num_meetings}} meetings in the DataBase</h5>
+    <h2>Meetings</h2>
+    <ul>
+        {% for meeting in meetings %}
+        <li>
+            <a href = "{% url 'detail' meeting.id %}">
+                {{meeting.title}}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'rooms' %}">Rooms List</a>
+
 </body>
 </html>
