@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.forms import modelform_factory
+
 from .models import Meeting, Room
+from  .forms import MeetingForm
 # Create your views here.
 
 
@@ -12,7 +13,6 @@ def rooms_list(request):
     return render(request, "meetings/rooms_list.html",
     {"rooms" : Room.objects.all()})
 
-MeetingForm = modelform_factory(Meeting, exclude=[])
 
 
 def new(request):
