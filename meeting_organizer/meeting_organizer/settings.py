@@ -32,6 +32,10 @@ CSRF_TRUSTED_ORIGINS = ['https://8000-barry1701-meetingorgani-qeqe45jqn2b.ws.cod
 
 # Application definition
 LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+
 
 
 INSTALLED_APPS = [
