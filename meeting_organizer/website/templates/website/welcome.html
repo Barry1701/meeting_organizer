@@ -10,12 +10,18 @@
     <ul>
         {% for meeting in meetings %}
         <li>
-            <a href = "{% url 'detail' meeting.id %}">
-                {{meeting.title}}
+            <a href="{% url 'detail' meeting.id %}">
+                {{ meeting.title }}
             </a>
         </li>
         {% endfor %}
     </ul>
-    <a href="{% url 'rooms' %}">Rooms List</a>
+    
+    {% if user.is_authenticated %}
+        <a href="{% url 'new' %}">Add New Meeting</a>
+    {% else %}
+        <p><a href="{% url 'login' %}">Login</a> to add a new meeting.</p>
+    {% endif %}
 
+    <a href="{% url 'rooms' %}">Rooms List</a>
 {% endblock %}

@@ -31,6 +31,8 @@ CSRF_TRUSTED_ORIGINS = ['https://8000-barry1701-meetingorgani-qeqe45jqn2b.ws.cod
 
 
 # Application definition
+LOGIN_URL = '/login/'
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
