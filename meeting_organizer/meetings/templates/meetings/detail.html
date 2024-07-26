@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
 
-{% block title %} Meeting: {{meeting.title}}{% endblock %}
+{% block title %}Meeting: {{ meeting.title }}{% endblock %}
 {% block content %}
-    <h1>{{meeting.title}}</h1>
-    <p>This meeting has been scheduled on {{meeting.date}} at {{meeting.start_time}} in <strong>{{meeting.room}}</strong>.
+    <h1>{{ meeting.title }}</h1>
+    <p>
+        This meeting has been scheduled on {{ meeting.date }} 
+        from {{ meeting.start_time }} to {{ meeting.end_time }} 
+        in <strong>{{ meeting.room }}</strong>.
+    </p>
+    <p>
+        Organized by: {{ meeting.created_by.username }}
     </p>
     <a href="{% url 'welcome' %}">Home</a>
- {% endblock %}
+{% endblock %}

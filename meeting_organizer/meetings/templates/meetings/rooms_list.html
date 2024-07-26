@@ -2,16 +2,13 @@
 
 {% block title %}Rooms List{% endblock %}
 {% block content %}
-<body>
-    <h2>Rooms</h2>
-    <ul>
-        {% for room in rooms %}
-        <li>
-            {{ room }}
-        </li>
-        {% endfor %}
-    </ul>
-    <p>
-        <a href="{% url 'welcome' %}">Home</a>  
-    </p>
-    {% endblock %}
+<h2>Rooms</h2>
+<ul>
+    {% for room in rooms %}
+    <li>
+        {{ room.name }}: Room {{ room.room_number }} on floor {{ room.floor }} (Capacity: {{ room.capacity }})
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'welcome' %}">Home</a>
+{% endblock %}

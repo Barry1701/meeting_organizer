@@ -11,17 +11,20 @@
         {% for meeting in meetings %}
         <li>
             <a href="{% url 'detail' meeting.id %}">
-                {{ meeting.title }}
+                {{ meeting.title }} (Organized by: {{ meeting.created_by.username }})
             </a>
         </li>
         {% endfor %}
     </ul>
     
     {% if user.is_authenticated %}
-        <a href="{% url 'new' %}">Add New Meeting</a>
+        <a href="{% url 'new' %}">Add New Meeting</a> |
+        <a href="{% url 'logout' %}">Logout</a>
     {% else %}
-        <p><a href="{% url 'login' %}">Log in</a> to add a new meeting.</p>
+        <a href="{% url 'login' %}">Login</a> |
+        <a href="{% url 'register' %}">Register</a>
     {% endif %}
 
-    <a href="{% url 'rooms' %}">Rooms List</a>
+    <a href="{% url 'rooms' %}">Rooms List</a> |
+    <a href="{% url 'about' %}">About</a>
 {% endblock %}
