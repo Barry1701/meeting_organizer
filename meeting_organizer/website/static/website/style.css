@@ -1,5 +1,117 @@
-body{
+body {
     font-family: sans-serif;
-    color: cornflowerblue;
-    background-color: floralwhite;
+    color: #333;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+
+.calendar-image {
+    float: right;
+    margin-left: 20px; 
+    height: auto;
+}
+
+h1, h2, h3 {
+    color: #4CAF50;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2em;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+
+
+li {
+    margin: 1em 0;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+form {
+    margin: 1em 0;
+}
+
+form table {
+    width: 100%;
+}
+
+form table tr td {
+    padding: 0.5em;
+}
+
+input[type="text"], input[type="date"], input[type="time"], input[type="number"] {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    width: auto;
+    padding: 0.5em 1em;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #f1f1f1;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+@media (max-width: 600px) {
+    .calendar-image {
+        float: none;
+        display: block;
+        margin: 0 auto 20px; /* Center the image on small screens */
+    }
 }

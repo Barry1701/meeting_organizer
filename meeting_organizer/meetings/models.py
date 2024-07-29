@@ -17,7 +17,7 @@ class Meeting(models.Model):
     start_time = models.TimeField(default=time(9))
     duration = models.IntegerField(default=1)  # Duration in hours
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE, default=1)  # User who created the meeting
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.title} at {self.start_time} on {self.date}'
@@ -30,13 +30,16 @@ class Meeting(models.Model):
 
     def clean(self):
         super().clean()
-        # Custom validation to ensure no overlapping meetings in the same room
+        # Calculate end time within the clean method
+        start_datetime = datetime.combine(self.date, self.start_time)
+        end_datetime = start_datetime + timedelta(hours=self.duration)
         overlapping_meetings = Meeting.objects.filter(
             room=self.room,
             date=self.date,
-            start_time__lt=self.end_time,
-            end_time__gt=self.start_time,
+            start_time__lt=end_datetime.time(),
+            start_time__gte=self.start_time,
         ).exclude(pk=self.pk)
         if overlapping_meetings.exists():
             raise ValidationError('This meeting overlaps with another meeting in the same room.')
+
 
