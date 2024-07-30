@@ -1,28 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <div style="overflow: hidden;"> <!-- Add this div to contain floated elements -->
-        <h1>Welcome to the Meeting Organizer!</h1>
-        <img src="{% static 'website/Meeting_Organizer.png' %}" class="calendar-image" alt="Calendar">
-        
-        <h3>Streamline Your Meetings, Elevate Your Productivity.</h3>
+    <h1>Welcome to the Meeting Organizer!</h1>
 
-        <h2>Meetings</h2>
-        <ul>
-            {% for meeting in meetings %}
-            <li>
-                <a href="{% url 'detail' meeting.id %}">
-                    {{ meeting.title }} (Organized by: {{ meeting.created_by.username }})
-                </a>
-            </li>
-            {% endfor %}
+    <h3>Streamline Your Meetings, Elevate Your Productivity.</h3>
+    <img src="{% static 'website/Meeting_Organizer.png' %}" class="calendar-image" alt="Calendar">
+
+    <h2>Meetings</h2>
+    <ul>
+        {% for meeting in meetings %}
+        <li>
+            <a href="{% url 'detail' meeting.id %}">
+                {{ meeting.title }} (Organized by: {{ meeting.created_by.username }})
+            </a>
+        </li>
+        {% endfor %}
     </ul>
-    
-    {% if user.is_authenticated %}
-        <a href="{% url 'new' %}">Add New Meeting</a> |
-        
-    {% endif %}
-
-    <a href="{% url 'rooms' %}">Rooms List</a> |
-    <a href="{% url 'about' %}">About</a>
 {% endblock %}

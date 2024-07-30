@@ -11,21 +11,27 @@
     <header>
         <h1>Meeting Organizer</h1>
     </header>
-    <div class="container">
+    <nav>
+        <a href="{% url 'welcome' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'rooms' %}">Rooms List</a>
         {% if user.is_authenticated %}
-            <p>Welcome, {{ user.username }}!</p>
-            <form method="post" action="{% url 'logout' %}">
+            <a href="{% url 'new' %}">Add New Meeting</a>
+            <form method="post" action="{% url 'logout' %}" style="display:inline;">
                 {% csrf_token %}
-                <button type="submit">Logout</button>
+                <button type="submit" style="background:none; border:none; color:white; cursor:pointer;">Logout</button>
             </form>
         {% else %}
-            <p>You are not logged in. <a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a></p>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a>
         {% endif %}
-        {% block content %}{% endblock %}
+    </nav>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
     </div>
-    <footer class="footer">
+    <footer>
         <p>&copy; 2024 Meeting Organizer</p>
     </footer>
 </body>
 </html>
-
