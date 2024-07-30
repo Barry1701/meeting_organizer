@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Profile</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <h3>Update User</h3>
+            {{ user_form.as_p }}
+        </div>
+        <div>
+            <h3>Update Profile</h3>
+            {{ profile_form.as_p }}
+        </div>
+        <button type="submit">Update</button>
+    </form>
+
+    <h3>Your Meetings</h3>
+    <ul>
+        {% for meeting in user_meetings %}
+            <li>{{ meeting.title }} on {{ meeting.date }} at {{ meeting.start_time }} in {{ meeting.room }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
