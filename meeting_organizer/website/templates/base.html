@@ -16,6 +16,7 @@
         <a href="{% url 'about' %}">About</a>
         <a href="{% url 'rooms' %}">Rooms List</a>
         {% if user.is_authenticated %}
+            <a href="{% url 'new' %}">Add New Meeting</a>  <!-- Dodaj ten link -->
             <a href="{% url 'profile' %}">Profile</a>
             <form method="post" action="{% url 'logout' %}" style="display:inline;">
                 {% csrf_token %}

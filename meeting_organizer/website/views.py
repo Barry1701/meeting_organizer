@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm  # Importowanie wbudowanego formularza rejestracyjnego Django
+from users.forms import CustomUserCreationForm  # Importowanie niestandardowego formularza rejestracyjnego
 from django.contrib.auth import login, authenticate
 from users.models import Profile
 from meetings.models import Meeting
@@ -13,7 +13,7 @@ def about(request):
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)  # Użyj nowego formularza
         if form.is_valid():
             user = form.save()
             Profile.objects.get_or_create(user=user)  # Tworzenie profilu po rejestracji
@@ -23,5 +23,7 @@ def register(request):
             login(request, user)
             return redirect('welcome')  # Przekierowanie na stronę powitalną lub inną stronę po zalogowaniu
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm()  # Użyj nowego formularza
     return render(request, 'registration/register.html', {'form': form})
+
+

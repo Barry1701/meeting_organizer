@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&k7ib3ulqu=b)k1(o7=!prg(g0o5wcl1ws*jg5u-(1)i(w6k=t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['8000-barry1701-meetingorgani-qeqe45jqn2b.ws.codeinstitute-ide.net']
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-barry1701-meetingorgani-qeqe45jqn2b.ws.codeinstitute-ide.net' ] 
@@ -59,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'users.middleware.EnsureProfileMiddleware',
+
 ]
 
 ROOT_URLCONF = 'meeting_organizer.urls'

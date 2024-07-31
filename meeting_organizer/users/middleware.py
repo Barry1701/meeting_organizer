@@ -9,4 +9,3 @@ class EnsureProfileMiddleware:
             Profile.objects.get_or_create(user=request.user)
         response = self.get_response(request)
         return response
-
